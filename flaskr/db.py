@@ -2,7 +2,7 @@ import click
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
-from main.model.config import DB_URL
+from .main.model.config import DB_URL
 from flask.cli import with_appcontext
 
 

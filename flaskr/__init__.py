@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from db import init_app
+from .db import init_app
 
 def create_app(testconfig = None):
 

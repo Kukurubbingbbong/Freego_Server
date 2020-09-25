@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer, Date, ForeignKey
-from ..db import Base
+from ...db import Base
 
 
 class PRODUCT_TB(Base):
