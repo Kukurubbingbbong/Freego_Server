@@ -9,7 +9,7 @@ def register_user(id, pwd):
             db_session.commit()
             return 'success'
         else:
-            return "id already existed"
+            return "id existed"
     except Exception as err:
         print("Error Log: [{}]".format(err))
         return 'fail'
