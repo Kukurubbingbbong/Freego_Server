@@ -19,14 +19,19 @@ def find(ingredient):
         soup = BeautifulSoup(html, 'html.parser')
         links = soup.select('div.common_sp_thumb > a')
         names = soup.select('div.common_sp_caption > div.common_sp_caption_tit.line2')
-
-        recipe = {}
+        
+        data = []
+        foodname = []
+        foodlink = []
         for i in range(len(links)):
             title = names[i].get_text()
             link = "https://www.10000recipe.com/" + links[i].get('href')
-            recipe[title] = link
+            foodname.append(title)
+            link.append(foodlink)
         browser.close()
-        return recipe
+        data.append(foodname)
+        data.append(foodlink)
+        return data
     except Exception as err:
         print("Error Log : [{}]".format(err))
         return 'fail'

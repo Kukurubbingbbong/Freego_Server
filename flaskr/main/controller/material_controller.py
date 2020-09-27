@@ -125,7 +125,10 @@ def delete_entry():
 def find_recipe(ingredient):
     result = recipe.find(ingredient)
     if result == 'fail':
-        return jsonify({"code": 400,
+        return jsonify({"code": 404,
                         "message": "fail"})
     return jsonify({"code": 200,
-                    "data": result})
+                    "data": {
+                        "foodname" : result[0],
+                        "recipelink" : result[1]
+                    }})
