@@ -39,15 +39,4 @@ def login():
     else:
         return jsonify({"code": 200, "message": "login success"})
 
-        
-
-@api.route('/finduser/<username>', methods=['GET'])
-def find_user(username):
-    result = user_service.find_user(username)
-
-    if result == 'fail':
-        return jsonify({"code": 400, "message": "fail"})
-    elif result == True:
-        return jsonify({"code": 200, "message": "existed"})
-    elif not result:
-        return jsonify({"code": 404, "message": "not exist"})
+    

@@ -25,28 +25,6 @@
 }
 ```
 
-## 기기 존재 확인
-
-```
-    GET /auth/find/{id}
-```
-
-- Request
-
-```
-
-```
-
-- Response
-
-```
-{
-    SUCCESS already existed { "code" : 200, "message": "existed" }
-    SUCCESS not exist {"code" : 404, "message": "not exist"}
-    FAIL { "code" : 400, "message" : "fail" }
-}
-```
-
 ## 로그인
 
 ```

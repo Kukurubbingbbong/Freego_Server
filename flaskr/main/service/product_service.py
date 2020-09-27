@@ -1,6 +1,7 @@
 from ...db import db_session
 from ..model.product import PRODUCT_TB
 from datetime import datetime
+from .recipe import find
 
 def show_data(id):
     try:
@@ -63,4 +64,3 @@ def delete_data(id, opt):
     except Exception as err:
         print("Error Log : [{}]".format(err))
         return 'fail'
-    

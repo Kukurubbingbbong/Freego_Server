@@ -3,7 +3,10 @@ from flask import Blueprint
 from flask import redirect
 from flask import request
 from flask import jsonify
-from ..service import product_service
+from ..service import (
+    product_service,
+    recipe
+)
 from ..model.find_code import find_code
 
 api = Blueprint("material", __name__, url_prefix='/material')
@@ -117,3 +120,12 @@ def delete_entry():
 
     return jsonify({"code": 200,
                     "message":"success"})
+
+@api.route('/recipe/<ingredient>', methods=['GET'])
+def find_recipe(ingredient):
+    result = recipe.find(ingredient)
+    if result == 'fail':
+        return jsonify({"code": 400,
+                        "message": "fail"})
+    return jsonify({"code": 200,
+                    "data": result})

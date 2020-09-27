@@ -155,6 +155,34 @@ http:/10.10.10.10:5000/material/insert?code=1313131313
     FAIL { "code": 404, "message": "fail" }
 ```
 
+## 레시피 찾기
+
+```
+    GET /material/recipe/{str:ingredient}
+```
+
+- Request
+
+```
+
+```
+
+- Response
+
+```
+        SUCCESS { "code": 200,
+            "data": {
+                "[요리제목0]" : "[레시피 설명 링크0]",
+                "[요리제목1]" : "[레시피 설명 링크1]",
+                "[요리제목2]" : "[레시피 설명 링크2]",
+                ...
+                },
+            "message" : "success"
+     }
+
+    FAIL { "code": 404, "message": "fail" }
+```
+
 ## 바코드정보로 상품정보 조회
 
 ```

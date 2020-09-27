@@ -1,7 +1,6 @@
 from flask import Blueprint
 from flask import jsonify
 from ..model import find_code
-import sqlite3
 
 
 api = Blueprint("code", __name__, url_prefix='/code')
