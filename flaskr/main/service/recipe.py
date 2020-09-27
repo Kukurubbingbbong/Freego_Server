@@ -9,7 +9,7 @@ def find(ingredient):
         options.add_argument('window-size=1920x1080')
         options.add_argument('disable-gpu')
         options.add_argument('lang=ko_KR')
-        browser = webdriver.Chrome('./chromedriver',chrome_options=options)
+        browser = webdriver.Chrome('/home/ubuntu/chromedriver',chrome_options=options)
         browser.execute_script("Object.defineProperty(navigator, 'languages', {get: function() {return ['ko-KR', 'ko']}})") # 드라이버 언어설정
         browser.execute_script("Object.defineProperty(navigator, 'plugins', {get: function() {return[1, 2, 3, 4, 5]}})") #플러그인 개수 변경
 
@@ -27,7 +27,7 @@ def find(ingredient):
             title = names[i].get_text()
             link = "https://www.10000recipe.com/" + links[i].get('href')
             foodname.append(title)
-            link.append(foodlink)
+            foodlink.append(link)
         browser.close()
         data.append(foodname)
         data.append(foodlink)
