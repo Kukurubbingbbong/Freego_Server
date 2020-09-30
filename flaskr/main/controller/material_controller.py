@@ -78,11 +78,13 @@ def update_entry():
 @api.route('/insert', methods=['POST'])
 def insert_entry():
     if request.method == 'POST':
+
         code = request.args.get("code")
-        has_img = find_code(code)
-        img_link = ""
-        if has_img:
-            img_link = has_img[4]
+        if not code == "nocode":        
+            has_img = find_code(code)
+            img_link = ""
+            if has_img:
+                img_link = has_img[4]
         data =  request.get_json()
 
         id = data["id"]
