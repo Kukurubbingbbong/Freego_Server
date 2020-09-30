@@ -94,12 +94,11 @@ def insert_entry():
         
         if not _existed:
             p_number = data["p_number"]
-            p_ex_date = data["p_ex_date"]
-            
+            p_ex_date = str(data["p_ex_date"])
+            p_ex_date = "{}-{}-{}".format(p_ex_date[:4],p_ex_date[4:6],p_ex_date[6:])
             p_number = int(p_number)
-            p_ex_date = datetime.datetime.strptime(str(p_ex_date), "%Y-%m-%d").date()
-                
-            result = product_service.insert_data(id , p_name, p_number, str(p_ex_date), img_link)
+            p_ex_date = datetime.datetime.strptime(str(p_ex_date), "%Y-%m-%d")
+            result = product_service.insert_data(id , p_name, p_number, p_ex_date, img_link)
 
             if result == 'fail':
                 return jsonify({"code": 404,
