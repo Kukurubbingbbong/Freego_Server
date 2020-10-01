@@ -9,7 +9,7 @@ class PRODUCT_TB(Base):
     p_name = Column(String(50), primary_key=True)
     p_number = Column(Integer)
     p_ex_date = Column(Date, index=True)
-    img_link = Column(String(100))
+    img_link = Column(String(200))
 
     def __init__(self, id, p_name, p_number, p_ex_date, img_link):
         self.id = id

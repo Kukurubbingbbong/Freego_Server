@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask import jsonify
-from ..model import find_code
+from ..model.find_code import find_code
 
 
 api = Blueprint("code", __name__, url_prefix='/code')
