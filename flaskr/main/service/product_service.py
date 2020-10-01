@@ -6,7 +6,7 @@ from .recipe import find
 def show_data(id):
     try:
         queries = db_session.query(PRODUCT_TB).filter(PRODUCT_TB.id == id)
-        entry = [dict(id = q.id, p_name=q.p_name, number=q.p_number, ex_date=q.p_ex_date) for q in queries]
+        entry = [dict(id = q.id, p_name=q.p_name, number=q.p_number, ex_date=q.p_ex_date,img_link=q.img_link) for q in queries]
         return entry
     except Exception as err:
         print('Error Log: [{}]'.format(err))
@@ -15,7 +15,7 @@ def show_data(id):
 def find_data(id, p_name):
     try:
         queries = db_session.query(PRODUCT_TB).filter(PRODUCT_TB.id == id).filter(PRODUCT_TB.p_name == p_name)
-        entry = [dict(id=q.id, p_name=q.p_name, p_number=q.p_number, p_ex_date=q.p_ex_date) for q in queries]
+        entry = [dict(id=q.id, p_name=q.p_name, p_number=q.p_number, p_ex_date=q.p_ex_date, img_link=q.img_link) for q in queries]
         if len(entry) == 0:
             return False
         return True
@@ -27,7 +27,7 @@ def find_lated(id):
     try:
         today = datetime.today().strftime("%Y-%m-%d")
         queries = db_session.query(PRODUCT_TB).filter(PRODUCT_TB.id == id).filter(PRODUCT_TB.p_ex_date <= today)
-        entry = [dict(id=q.id, p_name=q.p_name, p_number=q.p_number, p_ex_date=q.p_ex_date) for q in queries]
+        entry = [dict(id=q.id, p_name=q.p_name, p_number=q.p_number, p_ex_date=q.p_ex_date, img_link=q.img_link) for q in queries]
         return entry
     except Exception as err:
         print('Error Log: [{}]'.format(err))
